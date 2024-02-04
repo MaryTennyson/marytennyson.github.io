@@ -96,6 +96,11 @@ footer {
         
     }
 
+    .center-text{
+    
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     .app-image img {
         width: 100%;
         height: auto;
