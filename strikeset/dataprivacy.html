@@ -1,144 +1,333 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StrikeSet: Data &amp; Privacy</title>
+<title>StrikeSet Data &amp; Privacy</title>
+
 <style>
   :root {
-    color-scheme: light dark;
+    color-scheme: dark;
+    --paper: #121212;
+    --ink: #ffffff;
+    --ink-soft: #b3b3b3;
+    --rule: #333333;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    max-width: 720px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 24px 96px;
+  }
+
+  .sheet {
+    max-width: 700px;
     margin: 0 auto;
-    padding: 48px 24px 96px;
-    line-height: 1.6;
-    color: #1a1a1a;
-    background: #ffffff;
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e6e6e6; background: #121212; }
-    a { color: #ff8a4c; }
-    hr { border-color: #333; }
+
+  header.doc-head {
+    padding-top: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
   }
+
   h1 {
-    font-size: 1.9rem;
-    margin-bottom: 0.25em;
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    font-weight: 700;
   }
+
+  .meta-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .meta-row strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .intro {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  .intro strong {
+    color: var(--ink);
+  }
+
+  section {
+    margin: 36px 0;
+  }
+
   h2 {
-    font-size: 1.25rem;
-    margin-top: 2em;
-    margin-bottom: 0.5em;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 14px;
   }
-  .updated {
-    color: #767676;
-    font-size: 0.9rem;
-    margin-bottom: 2em;
+
+  li,
+  p,
+  h1,
+  h2 {
+    color: inherit;
   }
+
+  p {
+    margin: 0 0 14px;
+    max-width: 68ch;
+  }
+
   ul {
-    padding-left: 1.25em;
+    margin: 0 0 14px;
+    padding-left: 22px;
+    max-width: 66ch;
   }
+
   li {
-    margin-bottom: 0.5em;
+    margin-bottom: 8px;
   }
+
+  li strong {
+    font-weight: 600;
+  }
+
   a {
-    color: #d9541e;
+    color: var(--ink);
+    text-underline-offset: 3px;
   }
-  hr {
-    margin: 3em 0;
+
+  .no-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .no-list li {
+    padding-left: 18px;
+    border-left: 2px solid var(--rule);
+  }
+
+  hr.div {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--rule);
+    margin: 40px 0 0;
+  }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--ink-soft);
   }
 </style>
-</head>
-<body>
 
-<h1>StrikeSet: Data &amp; Privacy</h1>
-<p class="updated">Last updated: August 2, 2026</p>
+<div class="sheet">
 
-<p>
-  This page is a plain-language summary of how StrikeSet handles your data and what controls
-  you have. For the full legal document, see our
-  <a href="https://embaxus.com/strikeset/privacypolicy">Privacy Policy</a>.
-</p>
+  <header class="doc-head">
+    <h1>Data &amp; Privacy</h1>
 
-<h2>What We Collect</h2>
+    <div class="meta-row">
+      <span><strong>Version</strong> 1</span>
+      <span><strong>Effective</strong> August 14, 2026</span>
+      <span><strong>Applies to</strong> StrikeSet (Android)</span>
+    </div>
+  </header>
 
-<ul>
-  <li>
-    <strong>Account info</strong> — your email and password (handled securely by Supabase
-    Auth — we never see or store your raw password).
-  </li>
-  <li><strong>Profile info</strong> — username, display name, and chosen avatar.</li>
-  <li><strong>Activity data</strong> — your points, streak, skip passes, and saved workout lists.</li>
-  <li><strong>Social data</strong> — friends, duel invites, and duel results you take part in.</li>
-  <li>
-    <strong>Notifications</strong> — a device push-notification token, only if you enable
-    push notifications.
-  </li>
-</ul>
+  <p class="intro">
+    This page provides a plain-language summary of how StrikeSet collects,
+    uses, and protects your information. For the complete legal details,
+    please see our
+    <a href="https://embaxus.com/strikeset/privacypolicy">
+      Privacy Policy
+    </a>.
+  </p>
 
-<h2>What We Don't Collect</h2>
+  <section>
+    <h2>What we collect, and why</h2>
 
-<p>
-  StrikeSet does <strong>not</strong> collect your location, access your camera or contacts,
-  collect payment or financial information, or use any advertising SDKs.
-</p>
+    <ul class="no-list">
+      <li>
+        <strong>Email address &amp; password</strong> &mdash;
+        Your email address is used to create and manage your account, sign in,
+        reset your password, and send necessary account-related emails.
+        Your password is not stored in plain text and is handled through
+        Supabase Auth using cryptographic password hashing.
+      </li>
 
-<h2>How We Use It</h2>
+      <li>
+        <strong>Username, display name, date of birth &amp; avatar</strong>
+        &mdash;
+        Your username and display name identify you within the App.
+        Your date of birth is used to verify that you meet the minimum age
+        requirement and is not displayed to other users. Your avatar is a
+        preset character and color selected within the App; we do not require
+        or collect a personal photo.
+      </li>
 
-<p>
-  To create and run your account, power social features like friends and duels, send you push
-  notifications (if enabled), and track your workout progress, points, and streaks.
-</p>
+      <li>
+        <strong>Workout lists, workout history, points &amp; streaks</strong>
+        &mdash;
+        This information allows StrikeSet to provide its core workout,
+        progress-tracking, streak, and scoring features.
+      </li>
 
-<h2>Who We Share It With</h2>
+      <li>
+        <strong>Duels, friends, friend requests &amp; trophies</strong>
+        &mdash;
+        This information is used to provide StrikeSet's social features,
+        including friend connections, workout duels, leaderboards, and
+        achievements.
+      </li>
 
-<p>
-  We don't sell your data or share it with advertisers. We use two service providers to run
-  StrikeSet:
-</p>
+      <li>
+        <strong>Device timezone</strong> &mdash;
+        Your device timezone is used to determine your local day so that
+        daily missions and streaks reset according to your local midnight.
+      </li>
 
-<ul>
-  <li><strong>Supabase</strong> — our backend, authentication, and database provider.</li>
-  <li><strong>Google Firebase Cloud Messaging</strong> — used only to deliver push notifications.</li>
-</ul>
+      <li>
+        <strong>Push notification token</strong> &mdash;
+        A Firebase Cloud Messaging installation identifier allows StrikeSet
+        to deliver notifications such as duel invitations, friend activity,
+        and workout reminders.
+      </li>
 
-<p>
-  Anything you choose to share via friends, duels, or leaderboards (username, display name,
-  avatar, points, streak) is visible to your friends and, where applicable, on shared
-  leaderboards.
-</p>
+      <li>
+        <strong>Crash and diagnostic data</strong> &mdash;
+        Firebase Crashlytics may collect information such as your device
+        model, operating system version, App version, and crash information
+        to help us identify and fix technical problems. This information is
+        associated with an installation identifier rather than your name or
+        email address.
+      </li>
+    </ul>
+  </section>
 
-<h2>Your Controls</h2>
+  <section>
+    <h2>What we don't collect</h2>
 
-<ul>
-  <li><strong>Edit your profile</strong> — Profile → Settings → Edit Profile.</li>
-  <li><strong>Turn off notifications</strong> — Profile → Settings → Push Notifications.</li>
-  <li>
-    <strong>Delete your account</strong> — Profile → Settings → Delete Account. This
-    permanently and irreversibly removes your account and all associated data.
-  </li>
-</ul>
+    <p>
+      StrikeSet does not collect your precise location, contacts, photos,
+      microphone or camera data, or browsing history. We do not use
+      advertising or third-party advertising SDKs, and we do not sell or
+      rent your personal information.
+    </p>
+  </section>
 
-<h2>Security</h2>
+  <section>
+    <h2>Who processes your data</h2>
 
-<p>
-  All data is transmitted over encrypted (HTTPS) connections, and our database uses
-  row-level security so your data is only ever accessible to you.
-</p>
+    <p>
+      StrikeSet relies on a limited number of infrastructure providers to
+      operate its core services:
+    </p>
 
-<h2>Questions</h2>
+    <ul class="no-list">
+      <li>
+        <strong>Supabase</strong> &mdash;
+        provides backend infrastructure, database services, authentication,
+        and real-time data synchronization for StrikeSet.
+      </li>
 
-<p>
-  Reach us at <a href="mailto:strikesetapp@gmail.com">strikesetapp@gmail.com</a>.
-</p>
+      <li>
+        <strong>Firebase / Google</strong> &mdash;
+        Firebase Cloud Messaging is used to deliver push notifications and
+        Firebase Crashlytics is used for crash reporting and diagnostics.
+        We do not use Firebase Analytics, Firestore, or other Firebase or
+        Google products for advertising or analytics.
+      </li>
+    </ul>
 
-<hr>
-<p class="updated">StrikeSet — a product of Embaxus.</p>
+    <p>
+      These providers process information on our behalf as necessary to
+      provide their services to StrikeSet. For additional information about
+      how your information is handled, including applicable provider privacy
+      practices, please see our
+      <a href="https://embaxus.com/strikeset/privacypolicy">
+        Privacy Policy
+      </a>.
+    </p>
+  </section>
 
-</body>
-</html>
+  <section>
+    <h2>What you control</h2>
 
-    
+    <ul class="no-list">
+      <li>
+        <strong>Edit your information</strong> &mdash;
+        You can view and update your profile information through
+        Settings &rarr; Edit Profile.
+      </li>
+
+      <li>
+        <strong>Manage notifications</strong> &mdash;
+        You can disable push notifications at any time through the App's
+        settings or your device settings.
+      </li>
+
+      <li>
+        <strong>Delete your account</strong> &mdash;
+        You can permanently delete your account through
+        Settings &rarr; Delete Account. Account deletion removes your
+        profile and associated App data, including workout data, duel history,
+        and friend connections, subject to the retention practices described
+        in our Privacy Policy.
+      </li>
+
+      <li>
+        <strong>Privacy requests</strong> &mdash;
+        You may contact us regarding data access, correction, export, or
+        other privacy-related requests using the contact information below.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Children's privacy</h2>
+
+    <p>
+      StrikeSet is not directed to children under 13, and users must confirm
+      that they are at least 13 years old when creating an account. We do not
+      knowingly collect personal information from children under 13.
+    </p>
+
+    <p>
+      If you believe that a child under 13 has created an account or provided
+      personal information through StrikeSet, please contact us so that we
+      can review the situation and take appropriate action.
+    </p>
+  </section>
+
+  <hr class="div" />
+
+  <footer>
+    <p>
+      Questions about your data or privacy?
+      Email us at
+      <a href="mailto:strikesetapp@gmail.com">
+        strikesetapp@gmail.com
+      </a>.
+    </p>
+
+    <p>
+      Full legal details are available in our
+      <a href="https://embaxus.com/strikeset/privacypolicy">
+        Privacy Policy
+      </a>
+      and
+      <a href="https://embaxus.com/strikeset/termsofservice">
+        Terms of Service
+      </a>.
+    </p>
+  </footer>
+
+</div>
